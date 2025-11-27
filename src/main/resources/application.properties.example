@@ -1,0 +1,40 @@
+# Server Configuration
+server.port=8080
+
+# Database Configuration
+spring.datasource.url=jdbc:mysql://localhost:3306/esd_project?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+spring.datasource.username=root
+spring.datasource.password=YOUR_MYSQL_PASSWORD_HERE
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA Configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+# OAuth2 Google Configuration
+spring.security.oauth2.client.registration.google.client-id=YOUR_GOOGLE_CLIENT_ID_HERE
+spring.security.oauth2.client.registration.google.client-secret=YOUR_GOOGLE_CLIENT_SECRET_HERE
+spring.security.oauth2.client.registration.google.scope=profile,email
+spring.security.oauth2.client.registration.google.redirect-uri=http://localhost:8080/login/oauth2/code/google
+spring.security.oauth2.client.provider.google.authorization-uri=https://accounts.google.com/o/oauth2/auth
+spring.security.oauth2.client.provider.google.token-uri=https://oauth2.googleapis.com/token
+spring.security.oauth2.client.provider.google.user-info-uri=https://www.googleapis.com/oauth2/v3/userinfo
+spring.security.oauth2.client.provider.google.user-name-attribute=sub
+
+# Logging
+logging.level.org.springframework.security=DEBUG
+logging.level.org.springframework.web=DEBUG
+
+# Session Management (Security for Grading System)
+# Session expires after 15 minutes of inactivity
+server.servlet.session.timeout=15m
+# Session cookie expires when browser closes (not persistent)
+server.servlet.session.cookie.max-age=-1
+# Prevent session fixation attacks
+server.servlet.session.cookie.http-only=true
+server.servlet.session.cookie.secure=false
+# Session cookie name
+server.servlet.session.cookie.name=JSESSIONID
+
