@@ -29,14 +29,12 @@ CREATE DATABASE esd_project;
 2. The database connection is already configured in `application.properties`:
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/esd_project
-spring.datasource.username=root
-spring.datasource.password=9426134175
 ```
 
 3. Load dummy data into the database:
    - Option 1: Run the SQL file directly:
      ```bash
-     mysql -u root -p9426134175 esd_project < data.sql
+     mysql -u root -p esd_project < data.sql
      ```
    - Option 2: Use the provided script:
      ```bash
